@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:taskmanagersystem/taskstatebutton.dart';
 
 void main() {
   runApp(const MyApp());
@@ -84,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
           ],
         ),
       ),
