@@ -33,6 +33,121 @@ class NoTasksState implements TaskState {
   }
 }
 
+class BeginningTaskState implements TaskState {
+  @override
+  Color get color => Colors.lightGreen;
+  @override
+  IconData get icon => CupertinoIcons.add_circled;
+  @override
+  String get title => "Активня задача";
+  @override
+  String get subtitle => "Выполнение задачи только началось!";
+
+  @override
+  Widget buildButton(BuildContext context, VoidCallback onPressed) {
+    return _buildBaseButton(
+      context,
+      onPressed,
+      icon: icon,
+      color: color,
+      title: title,
+      subtitle: subtitle,
+    );
+  }
+}
+
+class HalfTimeTaskState implements TaskState {
+  @override
+  Color get color => Colors.amberAccent;
+  @override
+  IconData get icon => CupertinoIcons.add_circled;
+  @override
+  String get title => "Активня задача";
+  @override
+  String get subtitle => "Осталась половина времени на выполнение задачи!";
+
+  @override
+  Widget buildButton(BuildContext context, VoidCallback onPressed) {
+    return _buildBaseButton(
+      context,
+      onPressed,
+      icon: icon,
+      color: color,
+      title: title,
+      subtitle: subtitle,
+    );
+  }
+}
+
+class DeadlineSoonTaskState implements TaskState {
+  @override
+  Color get color => Color.fromARGB(255, 172, 35, 1);
+  @override
+  IconData get icon => CupertinoIcons.add_circled;
+  @override
+  String get title => "Активня задача";
+  @override
+  String get subtitle => "Скоро дедлайн!";
+
+  @override
+  Widget buildButton(BuildContext context, VoidCallback onPressed) {
+    return _buildBaseButton(
+      context,
+      onPressed,
+      icon: icon,
+      color: color,
+      title: title,
+      subtitle: subtitle,
+    );
+  }
+}
+
+class TaskCompletedTaskState implements TaskState {
+  @override
+  Color get color => Colors.green;
+  @override
+  IconData get icon => CupertinoIcons.add_circled;
+  @override
+  String get title => "Задача выполнена!";
+  @override
+  String get subtitle => "Задача выполнена, отличная работа!";
+
+  @override
+  Widget buildButton(BuildContext context, VoidCallback onPressed) {
+    return _buildBaseButton(
+      context,
+      onPressed,
+      icon: icon,
+      color: color,
+      title: title,
+      subtitle: subtitle,
+    );
+  }
+}
+
+class Taskdidntcoplete implements TaskState {
+  @override
+  Color get color => Color.fromARGB(255, 172, 35, 1);
+  @override
+  IconData get icon => CupertinoIcons.add_circled;
+  @override
+  String get title => "Задача не выполнена";
+  @override
+  String get subtitle => "Задача не выполнена в срок или отменена";
+
+  @override
+  Widget buildButton(BuildContext context, VoidCallback onPressed) {
+    return _buildBaseButton(
+      context,
+      onPressed,
+      icon: icon,
+      color: color,
+      title: title,
+      subtitle: subtitle,
+    );
+  }
+}
+
 Widget _buildBaseButton(
   BuildContext context,
   VoidCallback onPressed, {
