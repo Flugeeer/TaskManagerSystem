@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:taskmanagersystem/taskstatebutton.dart';
+import 'package:taskmanagersystem/maintask.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
       ),
-      home: const MyHomePage(title: 'Task Manager'),
+      home: const MainTask(title: "хкй"),
     );
   }
 }
