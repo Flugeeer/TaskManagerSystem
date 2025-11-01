@@ -15,9 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Task Manager System',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.lightGreen,
+          primary: Colors.white,
+        ),
       ),
-      home: const MainTask(title: "хкй"),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(title: "хкй"),
     );
   }
 }
@@ -31,21 +35,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int currentIndex = 2;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
-        title: Text("Task Manager"),
-        titleTextStyle: TextStyle(color: Colors.white, fontSize: 20.0),
-        actions: <Widget>[
-          Icon(CupertinoIcons.plus, color: Colors.white, size: 40.0),
-          Icon(
-            CupertinoIcons.person_crop_circle_fill,
-            color: Colors.white,
-            size: 40.0,
-          ),
-        ],
+        backgroundColor: Colors.white,
+        title: Text("Task Manager System"),
+        titleTextStyle: TextStyle(color: Colors.lightGreen, fontSize: 20.0),
       ),
       body: Container(
         width: double.infinity,
@@ -58,7 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: double.infinity,
                 height: 100,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => const MainTask(title: "хуй"),
+                      ),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.lightGreen,
                     foregroundColor: Colors.white,
@@ -89,6 +94,36 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 5),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 2,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Settings",
+            backgroundColor: Colors.lightGreen,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.request_page),
+            label: "Pull Request",
+            backgroundColor: Colors.lightGreen,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+            backgroundColor: Colors.lightGreen,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+            backgroundColor: Colors.lightGreen,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.message),
+            label: "Messages",
+            backgroundColor: Colors.lightGreen,
+          ),
+        ],
       ),
     );
   }
