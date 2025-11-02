@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:taskmanagersystem/taskstatebutton.dart';
-import 'package:taskmanagersystem/maintask.dart';
+import 'package:taskmanagersystem/pages/HomePage.dart';
+import 'package:taskmanagersystem/pages/UserProfile.dart';
+import 'package:taskmanagersystem/pages/ChatPage.dart';
+import 'package:taskmanagersystem/pages/SettingsPage.dart';
+import 'package:taskmanagersystem/pages/PullRequestPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,82 +24,36 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: "хкй"),
+      home: const MainPage(title: "Unused"),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MainPage extends StatefulWidget {
+  const MainPage({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MainPageState extends State<MainPage> {
   int currentIndex = 2;
+  final screens = [
+    SettingsPage(),
+    PullRequestPage(),
+    HomePage(),
+    ProfilePage(),
+    ChatPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text("Task Manager System"),
-        titleTextStyle: TextStyle(color: Colors.lightGreen, fontSize: 20.0),
-      ),
-      body: Container(
-        width: double.infinity,
-        child: Column(
-          children: [
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: SizedBox(
-                width: double.infinity,
-                height: 100,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<void>(
-                        builder: (context) => const MainTask(title: "хуй"),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.lightGreen,
-                    foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        CupertinoIcons.plus_circle_fill,
-                        size: 24,
-                        color: Colors.white,
-                      ),
-                      SizedBox(width: 20),
-                      Text(
-                        'Отображение выполняемой задачи\nГлавный переход на приоритетную задачу\nОбратный отсчет по времени к дедлайну',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 5),
-          ],
-        ),
-      ),
+      body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
+        currentIndex: currentIndex,
+        onTap: (index) => setState(() => currentIndex = index),
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
