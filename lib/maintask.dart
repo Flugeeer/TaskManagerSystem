@@ -28,7 +28,7 @@ class _MainTaskState extends State<MainTask> {
                     Navigator.push(
                       context,
                       MaterialPageRoute<void>(
-                        builder: (context) => const MyHomePage(title: "хуй"),
+                        builder: (context) => const MainPage(title: "хуй"),
                       ),
                     );
                   },
