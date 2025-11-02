@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taskmanagersystem/main.dart';
 import 'package:taskmanagersystem/pages/UserProfile.dart';
-import 'package:taskmanagersystem/maintask.dart';
+import 'package:taskmanagersystem/maintaskpage.dart';
 import 'package:flutter/cupertino.dart';
 
 class HomePage extends StatefulWidget {
@@ -35,7 +35,8 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (context) => const MainTask(title: "хуй"),
+                      builder: (context) =>
+                          const MainTaskPage(title: "Main task"),
                     ),
                   );
                 },
