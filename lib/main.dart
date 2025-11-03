@@ -5,6 +5,7 @@ import 'package:taskmanagersystem/pages/UserProfile.dart';
 import 'package:taskmanagersystem/pages/ChatPage.dart';
 import 'package:taskmanagersystem/pages/SettingsPage.dart';
 import 'package:taskmanagersystem/pages/PullRequestPage.dart';
+import 'package:taskmanagersystem/pages/LoginPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: const MainPage(title: "Unused"),
+      home: LoginPage(),
     );
   }
 }
