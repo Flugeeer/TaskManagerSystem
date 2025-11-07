@@ -26,16 +26,29 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 300),
+            Column(
+              children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  height: 400,
+                  color: Colors.green,
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
             TextField(
               controller: _emailController,
               decoration: InputDecoration(
                 label: Text('Email'),
                 labelStyle: TextStyle(color: Colors.lightGreen, fontSize: 16.0),
-                border: OutlineInputBorder(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.lightGreen, width: 1.0),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                // fillColor: Color.fromARGB(120, 230, 123, 123),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.lightGreen, width: 1.0),
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
               keyboardType: TextInputType.emailAddress,
             ),
@@ -45,13 +58,18 @@ class _LoginPageState extends State<LoginPage> {
               decoration: InputDecoration(
                 label: Text('Password'),
                 labelStyle: TextStyle(color: Colors.lightGreen, fontSize: 16.0),
-                border: OutlineInputBorder(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.lightGreen, width: 1.0),
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.lightGreen),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.lightGreen, width: 1.0),
+                  borderRadius: BorderRadius.circular(12),
                 ),
               ),
               keyboardType: TextInputType.visiblePassword,
             ),
+            SizedBox(height: 12),
             // ElevatedButton(onPressed: onPressed, child: child)
           ],
         ),
