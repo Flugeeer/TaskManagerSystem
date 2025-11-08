@@ -8,6 +8,7 @@ import 'package:taskmanagersystem/pages/PullRequestPage.dart';
 import 'package:taskmanagersystem/pages/LoginPage.dart';
 import 'package:taskmanagersystem/services/authservice.dart';
 import 'package:taskmanagersystem/pages/LoginPage.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,16 +19,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Task Manager System',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.lightGreen,
-          primary: Colors.white,
+    return ChangeNotifierProvider(
+      create: (_) => AuthService(),
+      child: MaterialApp(
+        title: 'Task Manager System',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.lightGreen,
+            primary: Colors.white,
+          ),
         ),
+        debugShowCheckedModeBanner: false,
+        home: LoginPage(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
     );
   }
 }
