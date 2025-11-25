@@ -22,7 +22,7 @@ class MainTask {
     required this.deadline,
     this.subTasks = const [],
     required this.priority,
-    required this.TaskType,it
+    required this.TaskType,
   });
 }
 
