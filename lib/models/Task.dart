@@ -9,6 +9,7 @@ class MainTask {
   final DateTime deadline;
   final List<SubTask> subTasks;
   final String priority;
+  final String TaskType;
 
   MainTask({
     required this.id,
@@ -21,6 +22,7 @@ class MainTask {
     required this.deadline,
     this.subTasks = const [],
     required this.priority,
+    required this.TaskType,it
   });
 }
 
