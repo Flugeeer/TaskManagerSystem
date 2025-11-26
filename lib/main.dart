@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:taskmanagersystem/pages/HomePage.dart';
+import 'package:taskmanagersystem/pages/RegistrationPage.dart';
 import 'package:taskmanagersystem/pages/UserProfile.dart';
 import 'package:taskmanagersystem/pages/ChatPage.dart';
 import 'package:taskmanagersystem/pages/SettingsPage.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: LoginPage(),
+        home: RegistrationPage(),
       ),
     );
   }
