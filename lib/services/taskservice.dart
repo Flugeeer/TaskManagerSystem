@@ -23,15 +23,22 @@ void _initializeTask(){
     deadline: DateTime.now().add(Duration(days: 6)), 
     priority: 'high', 
     TaskType: 'frontend'),
+
   );
   SubTask(
 id: '1-1',
 title: 'Создать дизайн главного экрана',
-type: 'frontend',
+type: 'designer',
 isCompleted: false,
 estimatatedTime: Duration(hours: 6),
   );
-
+  SubTask(
+    id: '1-2',
+    title: 'Перенести дизайн главного экрана',
+    type: 'frontend',
+    isCompleted: false,
+    estimatatedTime: Duration(days: 15),
+  );
 }
 }
 
